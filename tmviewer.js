@@ -6,6 +6,7 @@
   d3.csv("topictime.csv",function(error, time) {
     
     exposedTime = time;
+    maxDensity = d3.max(exposedTime, function(d) {return parseFloat(d.density)})
   d3.csv("doclinks.csv",function(error, docs) {
     exposedDocs = docs;
         newTopics = [];
@@ -73,7 +74,7 @@
 wordScale=d3.scale.linear().domain([0.01,0.1,0.5,1]).range([10,40,80,160]).clamp(true);
 wordColor=d3.scale.linear().domain([10,40,80,160]).range(["blue","green","orange","red"]);
 timeScale=d3.scale.linear().domain([1993,2013]).range([0,190]);
-densityScale=d3.scale.linear().domain([0,10]).range([0,20]).clamp(true);
+densityScale=d3.scale.linear().domain([0,maxDensity]).range([0,20]).clamp(true);
 
 newTopics.sort(function (a,b) {
     if (parseInt(a.tNumber) > parseInt(b.tNumber))

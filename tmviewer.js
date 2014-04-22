@@ -1,30 +1,3 @@
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-  <title>Topic Model Viewer</title>
-  <meta charset="utf-8" />
-</head>
-
-<body style="width:100%;height:100%">
-<div id="vizcontainer" style="width:2500px;height:2500px">
-  
-  
-</div>
-<div id="topicDetails" class="modal" style="padding:20px;position:fixed;right:20px;top:20px;background:white;border:1px black solid;max-width:300px;max-height: 80%;overflow:auto;">
-  <p>Click a topic title to get related documents</p>
-  <p>Then click on a document title to see the topics that make it up</p>
-</div>
-
-<div id="docDetails" class="modal" style="display:none;padding:20px;position:fixed;right:20px;top:20px;background:white;border:1px black solid;max-width:300px;max-height: 80%;overflow:auto;">
-  Document Info Goes Here
-</div>
-
-  <footer>
-<script src="d3.v3.min.js" type="text/javascript">
-</script>
-<script src="cloud.js" type="text/javascript">
-</script>
-<script>
-  
   d3.csv("metadata.csv", function(error, metadata) {
     
   d3.json("topics.json",function(error, topics) {
@@ -306,7 +279,3 @@ var docContent = "<p><h3>"+docTitle+"</h3><ul>"
   
   d3.select("#docDetails").style("display", "block").html(docContent);
 }
-</script>
-  </footer>
-</body>
-</html>
